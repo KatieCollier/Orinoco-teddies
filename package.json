@@ -1,0 +1,22 @@
+{
+  "name": "orinoco-teddies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./SASS/main.scss:./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KatieCollier/Orinoco-teddies.git"
+  },
+  "author": "Katie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KatieCollier/Orinoco-teddies/issues"
+  },
+  "homepage": "https://github.com/KatieCollier/Orinoco-teddies#readme",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
+}
