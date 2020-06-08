@@ -1,11 +1,16 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap");
+body {
+  box-sizing: border-box;
+  max-width: 1300px;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap");
 :root {
   --blue: #2C3E50;
   --indigo: #6610f2;
@@ -10059,6 +10064,15 @@ header {
   font-family: "Gloria Hallelujah", cursive;
   font-size: 20px;
   font-weight: bold;
+  min-width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header .orinoco-logo, header .oriteddies-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .logo-img {
@@ -10071,14 +10085,18 @@ footer {
   font-size: 16px;
 }
 
-img {
-  height: 60px;
-  width: 60px;
+.card {
+  border: solid 2px #7c5aa9;
 }
 
-.card {
-  height: 350px;
-  width: 350px;
+.card-text {
+  border-top: solid 2px #7c5aa9;
+}
+.card-text h2 {
+  font-size: 20px;
+}
+.card-text p {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

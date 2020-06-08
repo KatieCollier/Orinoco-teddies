@@ -29,12 +29,14 @@ request.onreadystatechange = function(){
         const newCard = document.createElement("div");
         main.appendChild(newCard);
         /* add the content from the server to the new card*/
-        newCard.innerHTML = '<div class="card"\>\
-                              <div class="card-body"\>\
-                                <img class="card-img-top" src="' + teddyInfo.teddyUrl + '" alt=""\>\
-                                <div class="card-text"\>\
-                                  <p>' +  teddyInfo.teddyName + '</p\>\
-                                  <p>' +  teddyInfo.teddyPrice + '</p\>\
+        newCard.innerHTML = '<div class="card m-2"\>\
+                              <div class="card-body pb-0"\>\
+                                <div class="img-size">\
+                                <img class="card-img-top mb-2" src="' + teddyInfo.teddyUrl + '" alt=""\>\
+                                </div>\
+                                <div class="card-text row mb-0 py-2"\>\
+                                  <h2 class="col my-auto">' +  teddyInfo.teddyName + '</h2\>\
+                                  <p class="col text-right my-auto ml-auto">' +  teddyInfo.teddyPrice + ' € </p\>\
                                 </div\>\
                               </div\>\
                             </div\>'

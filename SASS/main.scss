@@ -1,5 +1,7 @@
+@import "../SASS/_general-rules";
 @import "../SASS/variables";
 @import "../FlatlyStyle/variables";
+@import "../SASS/mixins";
 @import "../bootstrap/scss/bootstrap.scss";
 @import "../FlatlyStyle/bootswatch";
 @import "../SASS/vue-layout";
