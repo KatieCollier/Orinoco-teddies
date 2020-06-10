@@ -3,6 +3,13 @@
 body {
   box-sizing: border-box;
   max-width: 1300px;
+  position: relative;
+}
+
+.btn:hover {
+  background-color: #7c5aa9 !important;
+  border: solid 1px #7c5aa9;
+  color: white !important;
 }
 
 /*!
@@ -10084,6 +10091,9 @@ header .orinoco-logo, header .oriteddies-logo {
 footer {
   background-color: #f3eaf1;
   font-size: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /*Layout specific to vue page*/
@@ -10105,6 +10115,37 @@ footer {
 }
 .card-text p {
   font-weight: bolder;
+}
+
+#product-photo img {
+  border: solid 3px #7c5aa9;
+  border-radius: 5%;
+}
+
+.main-product-info p {
+  color: #7c5aa9;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+.btn {
+  background-color: #f3eaf1;
+  border: solid 1px #7c5aa9;
+  color: black;
+  margin: auto;
+}
+
+option {
+  width: 182px;
+}
+
+.input-number {
+  width: 200px;
+  line-height: 20px;
 }
 
 header a {

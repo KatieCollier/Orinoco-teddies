@@ -34,7 +34,7 @@
     </header>
 
      <!-- section with link to basket just below header -->
-     <div class="basket row">
+     <div class="basket row mb-2">
         <div class="col text-right">
             <a href="basket.html">
                 <img class="basket-img" src="images/basket.png" alt="">
@@ -43,34 +43,36 @@
     </div>
 
     <!-- Main section -->
-    <main id="main-product">
-        <div id="product-photo">
+    <main id="main-product" class="container-fluid row">
+        <!-- div in which to insert photo via JavaScript-->
+        <div id="product-photo" class="col-lg-4 oveflow-hidden p-0">
         </div>
-        <div class="product-info">
-            <div class="main-product-info">
-                <p id="product-name"> Teddy Name </p>
-                <p id="product-price"> Teddy Price </p>
+        <!-- Div containing all the information on the product
+        Also filled in via Javascript-->
+        <div class="product-info col-lg-7 mt-2 ml-lg-4" >
+            <div class="main-product-info row d-flex justify-content-space-between">
+                <p id="product-name" class="col"> </p>
+                <p id="product-price" class="col text-right"> </p>
             </div>
             <p id="product-description"> </p>
-            <div class="choice-group">
-                <label for="product-color">
-                    Choisissez une couleur
+            <div class="choice-group m-3">
+                <label for="product-color" class="row">
+                    <strong> Choisissez une couleur </strong>
                 </label>
-                <select name="product-color" id="product-color">
+                <select name="product-color" id="product-color" class="row">
                 </select>
             </div>
-            <div class="choice-group">
-                <label for="product-quantity">
-                    Nombres d'articles
+            <div class="choice-group m-3">
+                <label for="product-quantity" class="row">
+                    <strong> Nombre d'articles </strong>
                 </label>
-                <input type="number" name="product-quantity" id="product-quantity" value="1" class="input-number">
+                <input type="number" name="product-quantity" id="product-quantity" value="1" class="input-number row">
+            </div>
+            <div class="text-center">
+                <button class="btn m-5"> Ajouter au panier </button>
             </div>
         </div>
-
-        <div>
-            <button> Ajouter au panier </button>
-        </div>
-        
+  
     </main>
 
     <!-- Footer with company details: name, town, year -->

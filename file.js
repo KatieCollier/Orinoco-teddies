@@ -80,7 +80,7 @@ var giveProductDetails = function(){
     productPrice.innerHTML = Teddies[j].price + " €";
     /*Description*/
     let productDescription = document.getElementById("product-description");
-    productDescription.innerHTML = "Description: " + Teddies[j].description;
+    productDescription.innerHTML = "<strong> Description: </strong>" + Teddies[j].description;
     /*Color*/
     let productColor = document.getElementById("product-color");
     /*Create an option for each color listed by the server*/

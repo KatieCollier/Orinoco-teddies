@@ -1,0 +1,35 @@
+#product-photo{
+    img{
+        border: solid 3px $dark-highlights-color;
+        border-radius: 5%;
+    }
+}
+
+.main-product-info{
+    p{
+        color: $dark-highlights-color;
+        font-size: 20px;
+        font-weight: bold;
+    } 
+}
+
+strong{
+    font-weight: bolder;
+}
+
+
+.btn{
+    background-color: $light-bg-color;
+    border: solid 1px $dark-highlights-color;
+    color: $text-default-color;
+    margin: auto;
+}
+
+option{
+    width: 182px;
+}
+
+.input-number{
+    width: 200px;
+    line-height: 20px;
+}
