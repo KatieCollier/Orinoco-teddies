@@ -2,6 +2,8 @@
     img{
         border: solid 3px $dark-highlights-color;
         border-radius: 5%;
+        width: 100%;
+        max-width: 350px;
     }
 }
 
@@ -16,7 +18,6 @@
 strong{
     font-weight: bolder;
 }
-
 
 .btn{
     background-color: $light-bg-color;

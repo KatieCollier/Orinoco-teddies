@@ -10094,6 +10094,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 1300px;
 }
 
 /*Layout specific to vue page*/
@@ -10120,6 +10121,8 @@ footer {
 #product-photo img {
   border: solid 3px #7c5aa9;
   border-radius: 5%;
+  width: 100%;
+  max-width: 350px;
 }
 
 .main-product-info p {
