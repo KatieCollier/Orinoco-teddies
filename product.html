@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <title>OriTeddies - Item Description </title>
+</head>
+
+<body class="container-fluid">
+
+    <!-- Header with Orinoco logo and OriTeddies logo-->
+    <header class="row mb-2 pt-2">
+        <div class="logo-left pl-3">
+            <a href="vue.html">
+            <div class="orinoco-logo">
+                <img class="logo-img" src="images/oricono-cadi.png" alt="">
+                <p class="logo-text"> Orinoco </p>
+            </div>
+        </a>
+        </div class="col">
+        <div>
+        </div>
+        <div class="logo-right pr-3">
+            <div class="oriteddies-logo">
+                <img class="logo-img" src="images/oriteddy-logo.png" alt="">
+                <p class="logo-text"> OriTeddies </p>
+            </div>
+        </div>
+    </header>
+
+     <!-- section with link to basket just below header -->
+     <div class="basket row">
+        <div class="col text-right">
+            <a href="basket.html">
+                <img class="basket-img" src="images/basket.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <!-- Main section -->
+    <main id="main-product">
+        <div class="product-img">
+            <img src="images/oriteddy-logo.png" alt="">
+        </div>
+        <div class="product-info">
+            <div class="main-product-info">
+                <p id="product-name"> Teddy Name </p>
+                <p> Teddy Price </p>
+            </div>
+            <p> Teddy description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, quas aliquid repellat quasi aliquam consequuntur et iure dicta eaque inventore nam ea dignissimos nihil illum, sequi voluptatum consectetur praesentium repudiandae?</p>
+            <div class="choice-group">
+                <label for="product-color">
+                    Choisissez une couleur
+                </label>
+                <select name="product-color" id="product-color">
+                    <option value="color1"> color 1 </option>
+                    <option value="color2"> color 2 </option>
+                </select>
+            </div>
+            <div class="choice-group">
+                <label for="product-quantity">
+                    Nombres d'articles
+                </label>
+                <input type="number" name="product-quantity" id="product-quantity" value="1" class="input-number">
+            </div>
+        </div>
+
+        <div>
+            <button> Ajouter au panier </button>
+        </div>
+        
+    </main>
+
+    <!-- Footer with company details: name, town, year -->
+    <footer class="row mt-3">
+        <div class="col text-center pt-2">
+            <p> Orinoco - Tokyo - 2020 </p>
+        </div>
+    </footer>
+
+    <!-- Link to JavaScript file -->
+    <script type="text/javascript" src="file.js"></script>
+</body>
+
+</html>

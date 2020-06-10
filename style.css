@@ -164,7 +164,7 @@ a {
 }
 a:hover {
   color: #0f7864;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]) {
@@ -2893,10 +2893,10 @@ fieldset:disabled a.btn {
 }
 .btn-link:hover {
   color: #0f7864;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .btn-link:focus, .btn-link.focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 .btn-link:disabled, .btn-link.disabled {
   color: #95a5a6;
@@ -10059,6 +10059,7 @@ h3 {
   color: #000;
 }
 
+/* layout of elements found on all pages: header and footer*/
 header {
   background-color: #f3eaf1;
   font-family: "Gloria Hallelujah", cursive;
@@ -10085,8 +10086,15 @@ footer {
   font-size: 16px;
 }
 
+/*Layout specific to vue page*/
 .card {
   border: solid 2px #7c5aa9;
+}
+.card a {
+  color: black;
+}
+.card :hover {
+  color: #7c5aa9;
 }
 
 .card-text {
@@ -10096,7 +10104,15 @@ footer {
   font-size: 20px;
 }
 .card-text p {
-  font-weight: bold;
+  font-weight: bolder;
+}
+
+header a {
+  color: black;
+}
+header a :hover {
+  color: black;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

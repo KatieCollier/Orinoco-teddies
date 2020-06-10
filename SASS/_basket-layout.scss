@@ -1,0 +1,9 @@
+header{
+    a{
+        color: $text-default-color;
+        :hover{
+            color: $text-default-color;
+            text-decoration: none;
+        }
+    }
+}

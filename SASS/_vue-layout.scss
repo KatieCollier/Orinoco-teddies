@@ -1,3 +1,4 @@
+/* layout of elements found on all pages: header and footer*/
 header{
     background-color: $light-bg-color;
     font-family: 'Gloria Hallelujah', cursive;
@@ -24,8 +25,15 @@ footer{
     font-size: 16px;
 }
 
+/*Layout specific to vue page*/
 .card{
     border: solid 2px $dark-highlights-color;
+    a{
+        color: $text-default-color;
+    }
+    :hover{
+        color: $dark-highlights-color;
+    }
 }
 
 .card-text{
@@ -34,6 +42,6 @@ footer{
         font-size: 20px;
     }
     p{
-        font-weight: bold;
+        font-weight: bolder;
     }
 }
