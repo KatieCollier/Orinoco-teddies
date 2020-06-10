@@ -56,3 +56,80 @@ if (document.getElementById("main-vue")){
   createCard();
   goToProduct();
 }
+
+
+/*####################################################*/
+
+/*create function to give product details in the product page*/
+var giveProductDetails = function(){
+  /*This function needs the teddy info to work, so get that first*/
+  getInfo('http://localhost:3000/api/teddies', function(response){
+    var Teddies = JSON.parse(response);
+    /*this function needs the clickedTeddy nb from the session storage*/
+    let j = parseInt(sessionStorage.getItem("clickedTeddy"));
+    console.log(j);
+    /*use clickedTeddy nb to fill in the different fields*/
+    /*Photo*/
+    let productPhoto = document.getElementById("product-photo");
+    productPhoto.innerHTML = "<img src=\"" + Teddies[j].imageUrl + "\" alt=\"\">";
+    /*Name*/
+    let productName = document.getElementById("product-name");
+    productName.innerHTML = Teddies[j].name;
+    /*Price*/
+    let productPrice = document.getElementById("product-price");
+    productPrice.innerHTML = Teddies[j].price + " €";
+    /*Description*/
+    let productDescription = document.getElementById("product-description");
+    productDescription.innerHTML = "Description: " + Teddies[j].description;
+    /*Color*/
+    let productColor = document.getElementById("product-color");
+    /*Create an option for each color listed by the server*/
+    let colors = Teddies[j].colors;
+    for (let k=0; k<colors.length; k++){
+      let color = colors[k];
+      let newOption = document.createElement("option");
+      productColor.appendChild(newOption);
+      /*will need a "translation" for the colors*/
+      let frenchColor = "Non défini";
+      switch(color){
+        case "Brown":
+          frenchColor = "Marron";
+          break;
+        case "Tan":
+          frenchColor = "Roux";
+          break;
+        case "Chocolate":
+          frenchColor = "Chocolat";
+          break;
+        case "White":
+          frenchColor = "Blanc";
+          break;
+        case "Pale brown":
+          frenchColor = "Marron clair";
+          break;
+        case "Dark brown":
+          frenchColor = "Marron foncé";
+          break;
+        case "Blue":
+          frenchColor = "Bleu";
+          break;
+        case "Pink":
+          frenchColor = "Rose";
+          break;
+        case "Black":
+          frenchColor = "Noir";
+          break;
+        case "Beige":
+          frenchColor = "Beige";
+          break;
+      }
+      newOption.value = color;
+      newOption.innerHTML = frenchColor;
+    }
+  })
+}
+
+/*run the give ProductDetails function only on the product page*/
+if(document.getElementById("main-product")){
+  giveProductDetails();
+}
