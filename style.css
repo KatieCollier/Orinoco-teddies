@@ -10118,6 +10118,17 @@ footer {
   font-weight: bolder;
 }
 
+.return {
+  font-size: 18px;
+  font-weight: bolder;
+}
+.return a {
+  color: black;
+}
+.return :hover {
+  color: #7c5aa9;
+}
+
 #product-photo img {
   border: solid 3px #7c5aa9;
   border-radius: 5%;
@@ -10151,12 +10162,16 @@ option {
   line-height: 20px;
 }
 
-header a {
+a {
   color: black;
 }
-header a :hover {
+a :hover {
   color: black;
   text-decoration: none;
+}
+
+.article-miniature, .article-info, .basket-total {
+  border: solid black 3px;
 }
 
 /*# sourceMappingURL=style.css.map */

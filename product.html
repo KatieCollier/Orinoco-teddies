@@ -18,7 +18,7 @@
         <div class="logo-left pl-3">
             <a href="vue.html">
             <div class="orinoco-logo">
-                <img class="logo-img" src="images/oricono-cadi.png" alt="">
+                <img class="logo-img" src="images/oricono-cadi.png" alt="Lien vers liste des articles">
                 <p class="logo-text"> Orinoco </p>
             </div>
         </a>
@@ -34,9 +34,13 @@
     </header>
 
      <!-- section with link to basket just below header -->
-     <div class="basket row mb-2">
+     <div class="basket row mb-4">
+        <div class="col return">
+            <a href="vue.html"> Retour </a>
+        </div>
         <div class="col text-right">
             <a href="basket.html">
+                <p class="sr-only"> Panier </p>
                 <img class="basket-img" src="images/basket.png" alt="">
             </a>
         </div>
@@ -69,7 +73,9 @@
                 <input type="number" name="product-quantity" id="product-quantity" value="1" class="input-number row">
             </div>
             <div class="text-center">
-                <button class="btn m-5"> Ajouter au panier </button>
+                <a href="basket.html">
+                    <button id="add-to-basket" class="btn m-5"> Ajouter au panier </button>
+                </a>
             </div>
         </div>
   

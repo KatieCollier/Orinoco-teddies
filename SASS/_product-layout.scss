@@ -1,3 +1,14 @@
+.return{
+    font-size: 18px;
+    font-weight: bolder;
+    a{
+        color: $text-default-color;
+    }
+    :hover{
+        color: $dark-highlights-color;
+    } 
+}
+
 #product-photo{
     img{
         border: solid 3px $dark-highlights-color;

@@ -57,10 +57,7 @@ if (document.getElementById("main-vue")){
   goToProduct();
 }
 
-
-/*####################################################*/
-
-/*create function to give product details in the product page*/
+/*create function to give product details in the product page depending on the clicked on teddy*/
 var giveProductDetails = function(){
   /*This function needs the teddy info to work, so get that first*/
   getInfo('http://localhost:3000/api/teddies', function(response){
@@ -129,7 +126,91 @@ var giveProductDetails = function(){
   })
 }
 
+/*run the give ProductDetails function only on the product page
+if(document.getElementById("main-product")){
+  giveProductDetails();
+}*/
+
+
+/*###########################################################*/
+
+/*create a function that collects necessary info for basket when you click on "Ajouter au panier"*/
+let addBasket = function(){
+  getInfo('http://localhost:3000/api/teddies', function(response){
+    var Teddies = JSON.parse(response);
+    console.log(Teddies);
+    let btnAddBasket = document.getElementById("add-to-basket");
+    btnAddBasket.addEventListener("click",function(event){
+      /*add necessary info to local storage*/
+      /*Teddy id and quantity of teddies bought*/
+      let j = parseInt(sessionStorage.getItem("clickedTeddy"));/*get number of teddy in array that is still in session storage*/
+      let teddyBought = Teddies[j]._id;
+      let quantity = document.getElementById("product-quantity").value;
+      localStorage.setItem(teddyBought, quantity);
+    })
+  } 
+  )
+}
+
 /*run the give ProductDetails function only on the product page*/
 if(document.getElementById("main-product")){
   giveProductDetails();
+  addBasket();
 }
+
+/*create function to complete basket page*/
+let fillBasket = function(){
+  /*can only complete basket when we already have teddy info*/
+  getInfo('http://localhost:3000/api/teddies', function(response){
+    var Teddies = JSON.parse(response);
+    let basketItems = document.getElementById("items");
+    let keys = Object.keys(localStorage);/* get all keys stored in local storage*/
+    let basketTotal = 0;
+    for(let l=0; l<keys.length; l++){
+      let key = keys[l];
+      for(let m=0; m<Teddies.length; m++){
+        let teddy = Teddies[m];
+        if(key == teddy._id){
+          let teddyQuantity = parseInt(localStorage.getItem(key));
+          let itemTotalPrice = teddyQuantity * teddy.price;
+          let basketItem = document.createElement("div");
+          basketItems.appendChild(basketItem);
+          basketItem.innerHTML = "<div class=\"row\">\
+          <div class=\"col-2 article-miniature\">\
+              <a href=\Need URL here\">\
+                  <img src=" + teddy.imageUrl +" alt=\"\">\
+              </a>\
+          </div>\
+          <div class=\"col article-info\">\
+              <div class=\"row\">\
+              <div class=\"basket-article col\">\
+                  <a href=\"need URL here\">\
+                  <p>" + teddy.name + "</p>\
+                  </a>\
+              </div>\
+              <div class=\"article-price col\">\
+                  <p>" + teddy.price + " € </p>\
+              </div>\
+              <div class=\"article-quantity col choice-group m-3\">\
+                  <input type=\"number\" name=\"article-quantity\" value=\"" + teddyQuantity + "\" class=\"input-number row\">\
+              </div>\
+              <div class=\"article-total col\">\
+                  <p>" + itemTotalPrice + " € </p>\
+              </div>\
+          </div>\
+          </div>\
+      </div>" 
+          basketTotal = basketTotal + itemTotalPrice;
+        } 
+      }
+    }
+    let basketTotalPrice = document.getElementById("basket-total-price");
+    basketTotalPrice.innerHTML = basketTotal + " €";
+  })
+}
+
+if(document.getElementById("main-basket")){
+  fillBasket();
+}
+
+
