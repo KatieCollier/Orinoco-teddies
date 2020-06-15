@@ -1,11 +1,21 @@
-    a{
+a{
+    color: $text-default-color;
+    :hover{
         color: $text-default-color;
-        :hover{
-            color: $text-default-color;
-            text-decoration: none;
-        }
+        text-decoration: none;
     }
+}
 
-.article-miniature, .article-info, .basket-total{
-    border: solid black 3px;
+.item{
+    img{
+        width: 150px;
+    }
+}
+
+.item{
+    border-bottom: solid 2px $dark-highlights-color;
+}
+
+#basket-total-price{
+    font-weight: bold;
 }

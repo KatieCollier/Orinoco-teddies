@@ -145,8 +145,13 @@ let addBasket = function(){
       /*Teddy id and quantity of teddies bought*/
       let j = parseInt(sessionStorage.getItem("clickedTeddy"));/*get number of teddy in array that is still in session storage*/
       let teddyBought = Teddies[j]._id;
-      let quantity = document.getElementById("product-quantity").value;
-      localStorage.setItem(teddyBought, quantity);
+      let quantity = parseInt(document.getElementById("product-quantity").value);
+      if(localStorage.getItem(teddyBought)){
+        let prevQuantity = parseInt(localStorage.getItem(teddyBought));
+        localStorage.setItem(teddyBought, prevQuantity+quantity);
+      } else {
+        localStorage.setItem(teddyBought, quantity);
+      }
     })
   } 
   )
@@ -175,14 +180,14 @@ let fillBasket = function(){
           let itemTotalPrice = teddyQuantity * teddy.price;
           let basketItem = document.createElement("div");
           basketItems.appendChild(basketItem);
-          basketItem.innerHTML = "<div class=\"row\">\
+          basketItem.innerHTML = "<div class=\"item row m-3 pb-2\">\
           <div class=\"col-2 article-miniature\">\
               <a href=\Need URL here\">\
                   <img src=" + teddy.imageUrl +" alt=\"\">\
               </a>\
           </div>\
-          <div class=\"col article-info\">\
-              <div class=\"row\">\
+          <div class=\"col article-info m-3\">\
+              <div class=\"row align-items-center\">\
               <div class=\"basket-article col\">\
                   <a href=\"need URL here\">\
                   <p>" + teddy.name + "</p>\
@@ -191,10 +196,10 @@ let fillBasket = function(){
               <div class=\"article-price col\">\
                   <p>" + teddy.price + " € </p>\
               </div>\
-              <div class=\"article-quantity col choice-group m-3\">\
+              <div class=\"article-quantity col choice-group\">\
                   <input type=\"number\" name=\"article-quantity\" value=\"" + teddyQuantity + "\" class=\"input-number row\">\
               </div>\
-              <div class=\"article-total col\">\
+              <div class=\"article-total col text-right\">\
                   <p>" + itemTotalPrice + " € </p>\
               </div>\
           </div>\
@@ -205,7 +210,7 @@ let fillBasket = function(){
       }
     }
     let basketTotalPrice = document.getElementById("basket-total-price");
-    basketTotalPrice.innerHTML = basketTotal + " €";
+    basketTotalPrice.innerHTML = "Prix total: " + basketTotal + " €";
   })
 }
 
@@ -214,3 +219,9 @@ if(document.getElementById("main-basket")){
 }
 
 
+/* refill basket if the quantity of an item changes*/
+/*let itemQuantity = document.getElementsByClassName("input-number");
+itemQuantity.addEventListener("input",function(event){
+  console.log("item number change!")
+}
+)*/

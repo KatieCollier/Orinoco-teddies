@@ -10170,8 +10170,16 @@ a :hover {
   text-decoration: none;
 }
 
-.article-miniature, .article-info, .basket-total {
-  border: solid black 3px;
+.item img {
+  width: 150px;
+}
+
+.item {
+  border-bottom: solid 2px #7c5aa9;
+}
+
+#basket-total-price {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
