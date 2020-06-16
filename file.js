@@ -7,7 +7,7 @@ var getInfo = function(url, success){
           success(request.responseText);
   }
 }
-request.open("GET", url, true );
+request.open("GET", url, true);
 request.send();
 }
 
@@ -177,6 +177,10 @@ let fillBasket = function(){
         let teddy = Teddies[m];
         if(key == teddy._id){
           let teddyQuantity = parseInt(localStorage.getItem(key));
+          /*add product to productsInfo array ready for ordering*/
+          for(n=0; n<teddyQuantity; n++){
+            products.push(teddy._id);
+          }
           let itemTotalPrice = teddyQuantity * teddy.price;
           let basketItem = document.createElement("div");
           basketItems.appendChild(basketItem);
@@ -214,14 +218,100 @@ let fillBasket = function(){
   })
 }
 
+
 if(document.getElementById("main-basket")){
   fillBasket();
 }
 
 
-/* refill basket if the quantity of an item changes*/
-/*let itemQuantity = document.getElementsByClassName("input-number");
-itemQuantity.addEventListener("input",function(event){
-  console.log("item number change!")
+/* complete order: send info to server and get order id*/
+
+/*create request content: contact*/
+/*create function to send post request*/
+/*var sendRequest = function(){
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function(){
+    if(this.readyState == 4){
+      let result = request.responseText;
+      console.log(result);
+    }
+  }
+
+  request.open("POST", "http://localhost:3000/api/teddies/order");
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send(JSON.stringify(contact), JSON.stringify(products));
+}*/
+
+let products = [];/* array with product IDs*/
+
+let contact = {
+  firstName: document.getElementById("firstName").value,
+  lastName: document.getElementById("lastName").value,
+  address: document.getElementById("address").value,
+  city: document.getElementById("city").value,
+  email: document.getElementById("email").value,
 }
-)*/
+
+let jsonContact = "\"contact\": " + JSON.stringify(contact);
+
+let jsonProducts = "\"products\": " + JSON.stringify(products)
+
+let order = "{" + jsonContact + "," + jsonProducts + "}"
+                       
+
+/*const sendOrder = async function(data){
+  let response = await fetch("http://localhost:3000/api/teddies/order",{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: data
+  })
+  if(response.ok){
+    let data = await response.json()
+    console.log(data)
+    console.log("nearly there!")
+  } else {
+    console.log("Something isnt working")
+  }
+}
+
+sendOrder(order)*/
+
+fetch("http://localhost:3000/api/teddies/order",{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: order
+  })
+ .then(response => response.json())
+ .then(data => {
+   console.log("Success: ", data);
+   let arrivedData = data
+   console.log(arrivedData.orderId)
+ })
+ .catch((error) => {
+   console.error("Error: ", error);
+ })
+
+ /* for info, how to add event listener to multiple elements
+ /* refill basket if the quantity of an item changes*/
+/* need to add an event listener to the number input box and 
+update fill basket function if it changes*/
+/*this can only happen if the fill basket has already been used:
+otherwise there is no number input box to change*/
+
+/* create function to update basket if user changes the quantity*/
+/*let updateBasket = function(){
+  document.querySelectorAll(".input-number").forEach(item => {
+    item.addEventListener("input", event => {
+      console.log("quantity has changed !")
+    })
+  })
+}
+
+if(document.getElementsByClassName("input-number")){
+  updateBasket();
+}*/
