@@ -20,6 +20,11 @@ header{
     width: 35px;
 }
 
+.basket-img{
+    height: 60px;
+    width: 60px;
+}
+
 footer{
     background-color: $light-bg-color;
     font-size: 16px;
@@ -49,3 +54,18 @@ footer{
         font-weight: bolder;
     }
 }
+
+#items-in-basket{
+    position: absolute;
+    right: 30px;
+    top: 22px;
+    color:white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: $dark-highlights-color;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+    opacity: 90%;
+} 

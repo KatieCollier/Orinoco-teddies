@@ -154,6 +154,23 @@ if(document.getElementById("main-product")){
   addToBasket();
 }
 
+/*create a function find out how many articles are in the basket*/
+const itemsInBasket = function(){
+  let keys = Object.keys(localStorage);
+  let nbItems = 0;
+  for (let k=0; k<keys.length; k++){
+    let nbItem = parseInt(localStorage.getItem(keys[k]));
+    nbItems = nbItems + nbItem;
+  }
+  console.log(nbItems)
+  let basketNb = document.getElementById("items-in-basket");
+  basketNb.innerHTML = nbItems;
+}
+
+if(document.getElementById("items-in-basket")){
+  itemsInBasket();
+}
+
 /*###########################################################*/
 /*Functions for the basket page*/
 /* create a custom HTML object for the besket items*/
