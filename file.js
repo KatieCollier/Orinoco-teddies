@@ -344,14 +344,14 @@ if(document.getElementById("main-basket")){
 const getOrderId = function(){
   let orderId = sessionStorage.getItem("orderID");
   let orderNumber = document.getElementById("order-number");
-  orderNumber.innerHTML = "Le numéro de votre commande:  " + orderId;
+  orderNumber.innerHTML = "Le numéro de votre commande:  <span>" + orderId +"</span>";
 }
 
 /*create function to get total amount of order*/
 const getOrderAmount = function(){
   let orderAmount = sessionStorage.getItem( "totalAmount");
   let orderTotal = document.getElementById("order-amount");
-  orderTotal.innerHTML = "Le montant de votre commande:  " + orderAmount + " €";
+  orderTotal.innerHTML = "Le montant de votre commande:  <span>" + orderAmount + " € </span>";
 }
 
 /*only run confirmation functions on confirmation page*/

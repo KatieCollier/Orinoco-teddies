@@ -10213,4 +10213,17 @@ a :hover {
   float: right;
 }
 
+#main-confirmation h1 {
+  font-size: 26px;
+}
+#main-confirmation h2 {
+  font-size: 22px;
+}
+#main-confirmation p {
+  font-size: 18px;
+}
+#main-confirmation span {
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=style.css.map */
