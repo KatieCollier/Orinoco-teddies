@@ -15,8 +15,9 @@
 
     <!-- Header with Orinoco logo and OriTeddies logo-->
     <header class="row mb-2 pt-2">
+        <!-- Orinoco logo on the left -->
         <div class="logo-left pl-3">
-            <a href="vue.html">
+            <a href="vue.html"> <!-- Orinoco logo is now a link to the vue page-->
             <div class="orinoco-logo">
                 <img class="logo-img" src="images/oricono-cadi.png" alt="Lien vers liste des articles">
                 <p class="logo-text"> Orinoco </p>
@@ -25,6 +26,7 @@
         </div class="col">
         <div>
         </div>
+        <!-- Oriteddies logo on the right-->
         <div class="logo-right pr-3">
             <div class="oriteddies-logo">
                 <img class="logo-img" src="images/oriteddy-logo.png" alt="">
@@ -36,8 +38,10 @@
      <!-- section with link to basket just below header -->
      <div class="basket row mb-4">
         <div class="col return">
+            <!-- has a more explicit link to the vue page -->
             <a href="vue.html"> Continuer vos achats </a>
         </div>
+        <!-- has a button to empty the basket -->
         <div class="col text-right">
             <button id="empty" class="btn"> Vider le panier </button>
         </div>
@@ -46,20 +50,25 @@
     <!-- Main section -->
     <main id="main-basket" class="container-fluid mb-5">
 
+        <!-- empty basket message that will only appear when no items have yet been added to the basket -->
         <div id="empty-basket">
             <p> Votre panier est vide </p>
         </div>
 
+        <!-- div to contain the items added to the basket
+        it will be filled dynamically with JavaScript-->
         <div id="items" class="container-fluid">
-
         </div>
 
+        <!--div to contain the total price of the basket
+        it will be filled dynamically with JavaScript -->
         <div class="row m-4 pr-3 w-100">
             <div class="basket-total col text-right">
                <p id="basket-total-price"> </p>
             </div>
         </div>
 
+        <!-- contact form for address, necessary to order products -->
         <form id="contact-form">
             <p class="h4"> Adresse de livraison </p>
             <div class="form-group">
@@ -82,6 +91,7 @@
                 <label for="city"> Ville: </label>
                 <input type="text" id="city" class="form-control" placeholder="Ville" required>
             </div>
+            <!-- button to submit order -->
             <button id="order" class="btn mt-3 mb-5"> Commander </button>
         </form>
 

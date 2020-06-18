@@ -15,8 +15,9 @@
 
     <!-- Header with Orinoco logo and OriTeddies logo-->
     <header class="row mb-2 pt-2">
+        <!-- Orinoco logo on the left -->
         <div class="logo-left pl-3">
-            <a href="vue.html">
+            <a href="vue.html"> <!-- Orinoco logo is now a link to the vue page-->
             <div class="orinoco-logo">
                 <img class="logo-img" src="images/oricono-cadi.png" alt="Lien vers liste des articles">
                 <p class="logo-text"> Orinoco </p>
@@ -25,6 +26,7 @@
         </div class="col">
         <div>
         </div>
+        <!-- Oriteddies logo on the right-->
         <div class="logo-right pr-3">
             <div class="oriteddies-logo">
                 <img class="logo-img" src="images/oriteddy-logo.png" alt="">
@@ -35,6 +37,7 @@
 
      <!-- section with link to basket just below header -->
      <div class="basket row mb-4">
+         <!-- has a more explicit link to the vue page -->
         <div class="col return">
             <a href="vue.html"> Retour </a>
         </div>
@@ -42,6 +45,7 @@
             <a href="basket.html">
                 <p class="sr-only"> Panier </p>
                 <img class="basket-img" src="images/basket.png" alt="">
+                <!-- will contain the number of items in the basket -->
                 <p id="items-in-basket" class="align-self-right"> 0 </p>
             </a>
         </div>
@@ -52,8 +56,8 @@
         <!-- div in which to insert photo via JavaScript-->
         <div id="product-photo" class="col-lg-4 oveflow-hidden p-0">
         </div>
-        <!-- Div containing all the information on the product
-        Also filled in via Javascript-->
+        <!-- div containing all the information on the product
+        also filled in via Javascript-->
         <div class="product-info col-lg-7 mt-2 ml-lg-4" >
             <div class="main-product-info row d-flex justify-content-space-between">
                 <p id="product-name" class="col"> </p>
