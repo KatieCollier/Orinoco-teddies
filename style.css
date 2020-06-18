@@ -10157,7 +10157,7 @@ option {
   width: 182px;
 }
 
-.input-number {
+.input-number-product {
   width: 200px;
   line-height: 20px;
 }
@@ -10171,7 +10171,8 @@ a :hover {
 }
 
 .item img {
-  width: 150px;
+  width: 100%;
+  max-width: 150px;
 }
 
 .item {
@@ -10180,6 +10181,16 @@ a :hover {
 
 #basket-total-price {
   font-weight: bold;
+}
+
+.not-empty {
+  display: none;
+}
+
+.input-number {
+  width: 50px;
+  line-height: 20px;
+  float: right;
 }
 
 /*# sourceMappingURL=style.css.map */

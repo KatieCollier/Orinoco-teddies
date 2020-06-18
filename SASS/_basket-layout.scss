@@ -8,7 +8,8 @@ a{
 
 .item{
     img{
-        width: 150px;
+        width: 100%;
+        max-width: 150px;
     }
 }
 
@@ -18,4 +19,14 @@ a{
 
 #basket-total-price{
     font-weight: bold;
+}
+
+.not-empty{
+    display: none;
+}
+
+.input-number{
+    width: 50px;
+    line-height: 20px;
+    float: right;
 }

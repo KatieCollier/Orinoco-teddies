@@ -17,9 +17,8 @@ class TeddyCard extends HTMLElement{
                           <div class="img-size">\
                           </div>\
                           <div class="card-text row mb-0 py-2"\>\
-                            <a class="stretched-link" href="product.html">\
-                              <h2 class="teddy-name col my-auto"> Name </h2\>\
-                            </a>\
+                            <a class="stretched-link"></a>\
+                            <h2 class="teddy-name col my-auto"> Name </h2\>\
                             <p class="teddy-price col text-right my-auto ml-auto"> Price </p\>\
                           </div\>\
                         </div\>\
@@ -44,6 +43,7 @@ const createCards = async function(){
       teddyPrice[t].innerHTML = Teddies[t].price + " €";
       let link = document.querySelectorAll(".stretched-link");
       link[t].id = "card-" + t;
+      link[t].href = "product.html?" + Teddies[t]._id;
     }
     
 }
@@ -134,16 +134,6 @@ const giveTeddyDetails = async function(){
   }
 }
 
-/*change url depending on the teddy shown -- ISSUES*/
-const changeURL = function(){
-    let clickedTeddy = sessionStorage.getItem("clickedTeddy");
-    let url = new URL(window.location.href);
-    let search_param = url.searchParams;
-    search_param.set("id", clickedTeddy);
-    let newUrl = url.toString();
-    window.location.href = newUrl;
-}
-
 /*create a function that collects necessary info from the product page to add to basket*/
 let addToBasket = function(){
   let btnAddBasket = document.getElementById("add-to-basket");
@@ -161,7 +151,6 @@ let addToBasket = function(){
 
 if(document.getElementById("main-product")){
   giveTeddyDetails();
-  /*changeURL();*/
   addToBasket();
 }
 
@@ -170,25 +159,25 @@ if(document.getElementById("main-product")){
 /* create a custom HTML object for the besket items*/
 class BasketItem extends HTMLElement{
   connectedCallback(){
-    this.innerHTML = "<div class=\"item row m-3 pb-2\">\
-                        <div class=\"col-2 article-miniature\">\
+    this.innerHTML = "<div class=\"item row m-3 pb-2 px-0\">\
+                        <div class=\"col-6 col-md-3 article-miniature align-self-center\">\
                           <a class=\"img-min\" href=\Need URL here\">\
                           </a>\
                         </div>\
-                        <div class=\"col article-info m-3\">\
+                        <div class=\"col article-info my-3 mx-0 mr-sm-3 mr-md-5\">\
                           <div class=\"row align-items-center\">\
-                            <div class=\"basket-article col\">\
+                            <div class=\"basket-article col-12 col-lg-3 text-right my-0\">\
                               <a href=\"need URL here\">\
                                 <p class=\"order-teddy-name\">  </p>\
                               </a>\
                             </div>\
-                            <div class=\"article-price col\">\
+                            <div class=\"article-price col-12 col-lg-3 text-right my-0\">\
                               <p class=\"order-teddy-price\">  </p>\
                             </div>\
-                            <div class=\"article-quantity col choice-group\">\
-                              <input type=\"number\" name=\"article-quantity\" value=\"1\" class=\"input-number row\">\
+                            <div class=\"article-quantity col-12 col-lg-3 my-0 choice-group\">\
+                              <input type=\"number\" name=\"article-quantity\" value=\"1\" class=\"input-number pr-2 mb-2\">\
                             </div>\
-                            <div class=\"article-total col text-right\">\
+                            <div class=\"article-total col-12 col-lg-3 text-right my-0\">\
                               <p> Total price of items € </p>\
                             </div>\
                           </div>\
@@ -207,8 +196,12 @@ give the totla price of the order - is updated if the quantities of an item chan
 const fillBasket = async function(){
   let Teddies = await getInfo();
   let items = document.getElementById("items");
-  let keys = Object.keys(localStorage);
   let basketTotal = 0;
+  let keys = Object.keys(localStorage);
+  if(keys.length>0){
+    let emptyBasket = document.getElementById("empty-basket");
+    emptyBasket.classList.add("not-empty")
+  }
   for(let l=0; l<keys.length; l++){
     let key = keys[l];
     let newBasketItem = document.createElement("basket-item");
@@ -247,6 +240,14 @@ const fillBasket = async function(){
       basketTotal = basketTotal + nbArticlePrice;
       basketTotalPrice.innerHTML = "Prix total:  " + basketTotal + " €";
     }
+  })
+}
+
+const emptyBasket = function(){
+  let empty = document.getElementById("empty");
+  empty.addEventListener("click", function(event){
+    localStorage.clear();
+    location.reload();
   })
 }
 
@@ -289,14 +290,56 @@ const sendOrder = async function(data){
   if(response.ok){
     let data= await response.json();
     let orderId = data.orderId;
-    localStorage.setItem("orderID", orderId)
+    sessionStorage.setItem("orderID", orderId);
+    let basketTotalPrice = document.getElementById("basket-total-price");
+    let totalAmount = parseInt(basketTotalPrice.innerHTML.replace(/Prix total:  | €/gi, ""));
+    sessionStorage.setItem("totalAmount", totalAmount);
+    console.log(totalAmount)
+    console.log(orderId)
+    window.location.href = "confirmation.html";
+    localStorage.clear();
   }else{
-    alert("Nous rencontrons actuellement une erreur avec notre système. Veuillez réessayer plus tard. Nous sommes désolés de ce contre-temps.")
+    console.log("Not Working!")
   }
 }
 
+/* send order when the user clicks on the order button*/
+const sendOrderOnClick = function(){
+  let orderButton = document.getElementById("order");
+  orderButton.addEventListener("click", function(event){
+    event.preventDefault();
+    sendOrder();
+  })
+}
 
 /*run basket page functions only for the basket page*/
 if(document.getElementById("main-basket")){
   fillBasket();
+  sendOrderOnClick();
+  emptyBasket();
 }
+
+
+/*###################################################################*/
+/*Function for the confirmation page*/
+
+/*create function to get order id and enter it in page*/
+const getOrderId = function(){
+  let orderId = sessionStorage.getItem("orderID");
+  let orderNumber = document.getElementById("order-number");
+  orderNumber.innerHTML = "Le numéro de votre commande:  " + orderId;
+}
+
+/*create function to get total amount of order*/
+const getOrderAmount = function(){
+  let orderAmount = sessionStorage.getItem( "totalAmount");
+  let orderTotal = document.getElementById("order-amount");
+  orderTotal.innerHTML = "Le montant de votre commande:  " + orderAmount + " €";
+}
+
+/*only run confirmation functions on confirmation page*/
+if(document.getElementById("main-confirmation")){
+  getOrderId()
+  getOrderAmount()
+}
+

@@ -36,20 +36,22 @@
      <!-- section with link to basket just below header -->
      <div class="basket row mb-4">
         <div class="col return">
-            <a href="vue.html"> Retour </a>
+            <a href="vue.html"> Continuer vos achats </a>
         </div>
         <div class="col text-right">
-            <a href="basket.html">
-                <p class="sr-only"> Panier </p>
-                <img class="basket-img" src="images/basket.png" alt="">
-            </a>
+            <button id="empty" class="btn"> Vider le panier </button>
         </div>
     </div>
 
     <!-- Main section -->
     <main id="main-basket" class="container-fluid mb-5">
 
-        <div id="items">
+        <div id="empty-basket">
+            <p> Votre panier est vide </p>
+        </div>
+
+        <div id="items" class="container-fluid">
+
         </div>
 
         <div class="row m-4 pr-3 w-100">
@@ -80,7 +82,7 @@
                 <label for="city"> Ville: </label>
                 <input type="text" id="city" class="form-control" placeholder="Ville" required>
             </div>
-            <button id="order" class="btn mt-3"> Commander </button>
+            <button id="order" class="btn mt-3 mb-5"> Commander </button>
         </form>
 
     </main>
