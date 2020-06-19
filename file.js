@@ -211,13 +211,13 @@ class BasketItem extends HTMLElement{
   connectedCallback(){
     this.innerHTML = "<div class=\"item row m-3 pb-2 px-0\">\
                         <div class=\"col-6 col-md-3 article-miniature align-self-center\">\
-                          <a class=\"img-min\" href=\Need URL here\">\
+                          <a class=\"img-min\">\
                           </a>\
                         </div>\
                         <div class=\"col article-info my-3 mx-0 mr-sm-3 mr-md-5\">\
                           <div class=\"row align-items-center\">\
                             <div class=\"basket-article col-12 col-lg-3 text-right my-0\">\
-                              <a class=\"name-link\" href=\"need URL here\">\
+                              <a class=\"name-link\">\
                                 <p class=\"order-teddy-name\">  </p>\
                               </a>\
                             </div>\

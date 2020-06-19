@@ -1,32 +1,35 @@
-a{
-    color: $text-default-color;
-    :hover{
-        color: $text-default-color;
-        text-decoration: none;
-    }
-}
-
-.item{
-    img{
-        width: 100%;
-        max-width: 150px;
-    }
-}
-
-.item{
-    border-bottom: solid 2px $dark-highlights-color;
-}
-
-#basket-total-price{
-    font-weight: bold;
-}
-
+/*layout of basket page*/
+/*create a class to toggle on when the basket is no longer empty*/
 .not-empty{
     display: none;
 }
 
+/*layout of items in basket*/
+.item{
+    border-bottom: solid 2px $dark-highlights-color;
+    img{
+        width: 100%;
+        max-width: 150px;
+    }
+    a:hover{
+        color: $dark-highlights-color;
+        font-weight: bold;
+    }
+}
+
+.img-min{
+    img:hover{
+        border: solid $dark-highlights-color 2px;
+    }
+}
+
+/*put the number input box on the right of its column*/
 .input-number{
     width: 50px;
     line-height: 20px;
     float: right;
+}
+
+#basket-total-price{
+    font-weight: bold;
 }

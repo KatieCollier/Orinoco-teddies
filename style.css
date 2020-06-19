@@ -1,17 +1,15 @@
 @charset "UTF-8";
+/*colors used for the website*/
+/*override of the bootstrap theme btn:hover*/
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap");
-body {
-  box-sizing: border-box;
-  max-width: 1300px;
-  position: relative;
-}
-
 .btn:hover {
   background-color: #7c5aa9 !important;
   border: solid 1px #7c5aa9;
   color: white !important;
 }
 
+/* my variables*/
+/*bootstrap theme variables*/
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -9922,6 +9920,7 @@ h3 {
     border-color: #dee2e6;
   }
 }
+/*bootstrap*/
 .bg-primary .navbar-nav .active > .nav-link {
   color: #18BC9C !important;
 }
@@ -10066,7 +10065,15 @@ h3 {
   color: #000;
 }
 
-/* layout of elements found on all pages: header and footer*/
+/*bootstrap theme*/
+/*layout for the different pages of the web site*/
+/* layout of elements found on all pages: body, header and footer*/
+body {
+  box-sizing: border-box;
+  max-width: 1300px;
+  position: relative;
+}
+
 header {
   background-color: #f3eaf1;
   font-family: "Gloria Hallelujah", cursive;
@@ -10083,14 +10090,18 @@ header .orinoco-logo, header .oriteddies-logo {
   justify-content: flex-start;
 }
 
+/*set colors for link in header and for when it is hovered over*/
+a {
+  color: black;
+}
+a :hover {
+  color: black;
+  text-decoration: none;
+}
+
 .logo-img {
   height: 35px;
   width: 35px;
-}
-
-.basket-img {
-  height: 60px;
-  width: 60px;
 }
 
 footer {
@@ -10123,6 +10134,12 @@ footer {
   font-weight: bolder;
 }
 
+/*layout of the basket bar and the number of items in the basket*/
+.basket-img {
+  height: 60px;
+  width: 60px;
+}
+
 #items-in-basket {
   position: absolute;
   right: 30px;
@@ -10138,6 +10155,8 @@ footer {
   opacity: 90%;
 }
 
+/*layout of the product page*/
+/*layout of link back to vue page*/
 .return {
   font-size: 18px;
   font-weight: bolder;
@@ -10149,6 +10168,7 @@ footer {
   color: #7c5aa9;
 }
 
+/*layout of product info*/
 #product-photo img {
   border: solid 3px #7c5aa9;
   border-radius: 5%;
@@ -10161,16 +10181,8 @@ footer {
   font-size: 20px;
   font-weight: bold;
 }
-
-strong {
+.main-product-info strong {
   font-weight: bolder;
-}
-
-.btn {
-  background-color: #f3eaf1;
-  border: solid 1px #7c5aa9;
-  color: black;
-  margin: auto;
 }
 
 option {
@@ -10182,37 +10194,48 @@ option {
   line-height: 20px;
 }
 
-a {
+.btn {
+  background-color: #f3eaf1;
+  border: solid 1px #7c5aa9;
   color: black;
-}
-a :hover {
-  color: black;
-  text-decoration: none;
+  margin: auto;
 }
 
-.item img {
-  width: 100%;
-  max-width: 150px;
-}
-
-.item {
-  border-bottom: solid 2px #7c5aa9;
-}
-
-#basket-total-price {
-  font-weight: bold;
-}
-
+/*layout of basket page*/
+/*create a class to toggle on when the basket is no longer empty*/
 .not-empty {
   display: none;
 }
 
+/*layout of items in basket*/
+.item {
+  border-bottom: solid 2px #7c5aa9;
+}
+.item img {
+  width: 100%;
+  max-width: 150px;
+}
+.item a:hover {
+  color: #7c5aa9;
+  font-weight: bold;
+}
+
+.img-min img:hover {
+  border: solid #7c5aa9 2px;
+}
+
+/*put the number input box on the right of its column*/
 .input-number {
   width: 50px;
   line-height: 20px;
   float: right;
 }
 
+#basket-total-price {
+  font-weight: bold;
+}
+
+/*layout of confirmation page*/
 #main-confirmation h1 {
   font-size: 26px;
 }

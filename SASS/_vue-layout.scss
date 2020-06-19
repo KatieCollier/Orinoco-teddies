@@ -1,4 +1,10 @@
-/* layout of elements found on all pages: header and footer*/
+/* layout of elements found on all pages: body, header and footer*/
+body{
+    box-sizing: border-box;
+    max-width: 1300px;
+    position: relative;
+}
+
 header{
     background-color: $light-bg-color;
     font-family: 'Gloria Hallelujah', cursive;
@@ -15,14 +21,18 @@ header{
     }
 }
 
+/*set colors for link in header and for when it is hovered over*/
+a{
+    color: $text-default-color;
+    :hover{
+        color: $text-default-color;
+        text-decoration: none;
+    }
+}
+
 .logo-img{
     height: 35px;
     width: 35px;
-}
-
-.basket-img{
-    height: 60px;
-    width: 60px;
 }
 
 footer{
@@ -53,6 +63,12 @@ footer{
     p{
         font-weight: bolder;
     }
+}
+
+/*layout of the basket bar and the number of items in the basket*/
+.basket-img{
+    height: 60px;
+    width: 60px;
 }
 
 #items-in-basket{

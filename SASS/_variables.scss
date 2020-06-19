@@ -1,3 +1,4 @@
+/*colors used for the website*/
 $pink: #f3eaf1;
 $purple: #7c5aa9;
 
@@ -6,6 +7,7 @@ $dark-highlights-color: $purple;
 $text-default-color: black;
 $link-hover-decoration: none;
 
+/*override of the bootstrap theme btn:hover*/
 .btn:hover{
     background-color: $dark-highlights-color !important;
     border: solid 1px $dark-highlights-color;

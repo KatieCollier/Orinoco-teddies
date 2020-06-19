@@ -1,9 +1,8 @@
-@import "../SASS/_general-rules";
-@import "../SASS/variables";
-@import "../FlatlyStyle/variables";
-@import "../SASS/mixins";
-@import "../bootstrap/scss/bootstrap.scss";
-@import "../FlatlyStyle/bootswatch";
+@import "../SASS/variables"; /* my variables*/
+@import "../FlatlyStyle/variables"; /*bootstrap theme variables*/
+@import "../bootstrap/scss/bootstrap.scss"; /*bootstrap*/
+@import "../FlatlyStyle/bootswatch"; /*bootstrap theme*/
+/*layout for the different pages of the web site*/
 @import "../SASS/vue-layout";
 @import "../SASS/product-layout";
 @import "../SASS/basket-layout";

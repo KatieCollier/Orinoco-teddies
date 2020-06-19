@@ -1,3 +1,5 @@
+/*layout of the product page*/
+/*layout of link back to vue page*/
 .return{
     font-size: 18px;
     font-weight: bolder;
@@ -9,6 +11,7 @@
     } 
 }
 
+/*layout of product info*/
 #product-photo{
     img{
         border: solid 3px $dark-highlights-color;
@@ -24,17 +27,9 @@
         font-size: 20px;
         font-weight: bold;
     } 
-}
-
-strong{
-    font-weight: bolder;
-}
-
-.btn{
-    background-color: $light-bg-color;
-    border: solid 1px $dark-highlights-color;
-    color: $text-default-color;
-    margin: auto;
+    strong{
+        font-weight: bolder;
+    }
 }
 
 option{
@@ -44,4 +39,11 @@ option{
 .input-number-product{
     width: 200px;
     line-height: 20px;
+}
+
+.btn{
+    background-color: $light-bg-color;
+    border: solid 1px $dark-highlights-color;
+    color: $text-default-color;
+    margin: auto;
 }
