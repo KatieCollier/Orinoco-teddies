@@ -34,7 +34,7 @@ customElements.define('teddy-card', TeddyCard);
 const createCards = async function(){
     let Teddies = await getInfo(); /* needs the info from the server to run */
     let main = document.getElementById("main-vue");
-    for(t=0; t<Teddies.length; t++){ /* for each teddy... */
+    for(let t=0; t<Teddies.length; t++){ /* for each teddy... */
       let newCard = document.createElement("teddy-card");
       main.appendChild(newCard);/*...create and append a new card using the custon element...*/
       /*...and fill in the different sections:*/
@@ -148,11 +148,11 @@ const fillTeddyDetails = async function(chosenTeddy){
 
 /*create a function to fill out the product page depending on the circumstances*/
 const fillProductPage = function(){
-  let storageTeddy = sessionStorage.getItem("clickedTeddy"); /*get id of the teddy that was clicked on in the vue page from the session storage*/  
-  fillTeddyDetails(storageTeddy); /*use it to fill in the details of the product page*/
   let url = new URL(window.location.href);
   let params = new URLSearchParams(url.search);
   if(!params.has("id")){/*if the url doesn't have an "id" parameter, then set it*/
+  let storageTeddy = sessionStorage.getItem("clickedTeddy"); /*get id of the teddy that was clicked on in the vue page from the session storage*/  
+  fillTeddyDetails(storageTeddy); /*use it to fill in the details of the product page*/
     params.set("id", storageTeddy);/*the teddy's id is used for the search parameter "id"*/
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
   } else{/*if the url does have an "id" parameter, then use it to fill out the product page - allows to save the url and come back to the same product page later*/
@@ -175,6 +175,7 @@ let addToBasket = function(){
     } else { /*if there are no articles of this type already in the basket (local storage), then...*/
       localStorage.setItem(teddyBought, quantity); /* use the quantity from the input box as the quantity in the basket*/
     }
+    window.location.href = "basket.html" /*redirect the user to the basket page*/
   })
 }
 
@@ -362,6 +363,8 @@ const sendOrder = async function(data){
     sessionStorage.setItem("totalAmount", totalAmount);/*store total amount of order in the sessionStorage to use on the order confirmation page*/
     window.location.href = "confirmation.html";/*go to the confirmation page*/
     localStorage.clear(); /*clear the localStorage(basket)*/
+  } else {
+    alert("Veuillez compléter l'adresse de livraison correctement")
   }
 }
 
